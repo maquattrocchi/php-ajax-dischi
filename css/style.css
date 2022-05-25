@@ -1,0 +1,40 @@
+/* general */
+body{
+    background-color: #1E2D3B;
+}
+/* header */
+header{
+    background: #2E3A46;
+    height: 70px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 2;
+}
+header img{
+    margin-left: 1rem;
+    width: 55px;
+}
+/* Main */
+main{
+    margin-top: 70px;
+}
+main .row{
+    width: 80%;
+}
+main .card{
+    padding: 1rem;
+    background-color: #2E3A46;
+    border: none;
+    text-align: center;
+}
+.card .cs_title{
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+}
+.card .cs_text{
+    color: #808080;
+    font-size: 1.3rem;
+}
