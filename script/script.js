@@ -4,23 +4,30 @@ const app = new Vue({
         arrDiscs: [],
         selectedGenre: '',
         genres: [],
+        apiPath: 'server.php'
     },
     methods:{
         getDisc(){
-            axios.get('server.php').then((res)=>{
+            let path = this.apiPath;
+            if(this.selectedGenre){
+                path = this.apiPath + '?genre=' + this.selectedGenre;
+            }
+            console.log(path)
+            axios.get(path).then((res)=>{
                 this.arrDiscs = res.data;
-                console.log(this.arrDiscs);
-                this.arrDiscs.forEach((disc) => {
-                    if(!this.genres.includes(disc.genre)){
-                        this.genres.push(disc.genre)
-                    }
-                console.log(this.genres)
-                });
+                if(this.genres.length < 1){
+                    this.arrDiscs.forEach((disc) => {
+                        if(!this.genres.includes(disc.genre)){
+                            this.genres.push(disc.genre);
+                            console.log(this.genres);
+                        }
+                    });
+                }
             })
-            console.log(this.selectedGenre)
         },
         searchGenre(){
-            console.log(this.selectedGenre)
+            console.log(this.selectedGenre);
+            this.getDisc();
         }
     },
     mounted(){
