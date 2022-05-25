@@ -11,10 +11,33 @@ header{
     top: 0;
     right: 0;
     z-index: 2;
+    padding: 0 1rem;
 }
 header img{
-    margin-left: 1rem;
     width: 55px;
+}
+/* search */
+.input-group{
+    width: auto;
+    border-radius: 15px;
+    overflow: hidden;
+}
+.input-group-text {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #1E2D3B;
+    border: none;
+    text-transform: uppercase;
+    border-right: 3px solid #fff;
+}
+.form-select{
+    background-color: #1E2D3B;
+    color: #fff;
+    border: none;
+    background-image: none;
+    appearance: auto;
+    -webkit-appearance: auto;
 }
 /* Main */
 main{

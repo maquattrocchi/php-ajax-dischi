@@ -11,23 +11,32 @@
     <title>PHP Dischi</title>
 </head>
 <body>
-    <header class="d-flex align-items-center">
-        <img src="img/spotify-logo.png" alt="spotify-logo">
-    </header>
-    <main id="app">
-        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-3 m-auto">
-            <div v-for="disc in arrDiscs" class="col">
-                <div class="card h-100">
-                    <img :src="disc.poster" class="card-img-top" :alt="disc.title">
-                    <div class="pt-3">
-                        <h5 class="cs_title">{{disc.title}}</h5>
-                        <div class="cs_text">{{disc.author}}</div>
-                        <div class="cs_text">{{disc.year}}</div>
+    <div id="app">
+        <header class="d-flex align-items-center justify-content-between">
+            <img src="img/spotify-logo.png" alt="spotify-logo">
+            <div class="input-group">
+                <label class="input-group-text" for="genre">Search by Genre</label>
+                <select class="form-select" name="genre" id="genre" v-model="selectedGenre" @change="searchGenre">
+                    <option value="">All</option>
+                    <option :value="genre" v-for="genre in genres">{{genre}}</option>
+                </select>
+            </div>
+        </header>
+        <main>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 gy-3 m-auto">
+                <div v-for="disc in arrDiscs" class="col">
+                    <div class="card h-100">
+                        <img :src="disc.poster" class="card-img-top" :alt="disc.title">
+                        <div class="pt-3">
+                            <h5 class="cs_title">{{disc.title}}</h5>
+                            <div class="cs_text">{{disc.author}}</div>
+                            <div class="cs_text">{{disc.year}}</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
     <script src="./script/script.js"></script>
 </body>
 </html>
